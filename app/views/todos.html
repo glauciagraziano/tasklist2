@@ -1,0 +1,27 @@
+<div class="container">
+<h2>My task list</h2>
+<p align="right">Active Tasks | <a href="#/archive">Archive</a></p>
+  
+<!-- Todos input -->
+    <form>
+      <input type="text" data ng-model="todo.name" placeholder="What needs to be done?"/>
+      Priority&nbsp;<select data ng-model="todo.importance">
+        <option value="urgent"selected="selected">Urgent</option>
+        <option value="high">High</option>
+        <option value="low">Low</option>
+      </select>
+      <input type = "submit" data ng-click="submitTodo()" value="Add task" />
+      <br/><br/>
+      <!-- Todos list -->
+      <div data ng-repeat="todo in todos" ng-hide="todo.done || todo.expiredDate">
+      <input type="text" value="{{todo.name}}" readonly />
+      <input type="text" value="{{todo.importance}}" readonly/>
+      Created at: <input type="text" value="{{todo.date | date:'medium'}}" readonly />
+        <button data ng-click="deleteTodo(todo)" title="Delete"><span class="glyphicon glyphicon-trash"></span></button>
+        <input type="submit" data ng-click="archiveTodo(todo)" value="Done">
+      </div>
+    </form>
+    <br/>
+    Todos: {{todos}}<br />
+    Todo : {{todo}}<br />
+</div>
