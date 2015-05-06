@@ -1,16 +1,21 @@
 <div class="container">
-<h2>Archived tasks</h2>
-<p align="right"><a href="/#/">Active Tasks</a> | Archived</p>
-  <table width= "70%" style="border-spacing: 2px; ">
+<h2>Task list</h2>
+<h3>Completed tasks</h3>
+<p align="right"><a href="/#/">Active Tasks</a> | Completed tasks</p>
+  <table width= "100%" style="border-spacing: 2px; ">
     <theader>
       <tr>
       <td style="padding: 6px;"><h4>Task</h4></td>
       <td style="padding: 6px;"><h4>Priority</h4></td>
+      <td style="padding: 6px;"><h4>Created at</h4></td>
+      <td style="padding: 6px;"><h4>Expired?</h4></td>
     </tr>
     </theader>
     <tr ng-repeat="todo in todos" ng-show="todo.done">
       <td style="padding: 6px;"><span>{{todo.name}}</span></td>
       <td style="padding: 6px;"><span>{{ todo.importance }}</span></td>
+      <td style="padding: 6px;"><span>{{todo.date | date:'medium'}}</span></td>
+      <td style="padding: 6px;"><span>{{todo.expiredDate}}</span></td>
     </tr>
   </table>
   <br/>
