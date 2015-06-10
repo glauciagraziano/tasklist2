@@ -33,3 +33,4 @@ var app = angular.module('tasklist2App', [
         redirectTo: '/'
       });
   });
+
